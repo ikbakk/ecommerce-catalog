@@ -1,15 +1,44 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import type { Ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+interface IListItems {
+  category: string
+  description: string
+  id: number
+  image: string
+  price: number
+  rating: {
+    count: number
+    rate: number
+  }
+  title: string
+}
+
+const listItems: Ref<IListItems[]> = ref([])
+
+async function getData(): Promise<void> {
+  const res = await fetch('https://fakestoreapi.com/products?limit=20')
+  const finalRes = await res.json()
+  listItems.value = finalRes
+}
+
+getData()
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      width="125"
+      height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
