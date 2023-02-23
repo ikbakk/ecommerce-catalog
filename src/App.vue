@@ -1,8 +1,7 @@
 <script setup lang="ts">
+import Product from './views/Product.vue'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 
 interface IListItems {
   category: string
@@ -29,86 +28,60 @@ getData()
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="unavailable">
+    <div class="background"></div>
+    <div class="container">
+      <h3>This Product is unavailable to show</h3>
+      <button class="next-btn">Next Product</button>
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+.unavailable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  height: 100vh;
+  background-color: white;
+  padding: 5rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.background {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 75%;
+  background-color: #d8d7d7;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  font-size: 1.2rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.next-btn {
+  background-color: white;
+  width: 30%;
+  outline: 1px;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
 }
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.next-btn:hover {
+  transition-duration: 300ms;
+  background-color: #d8d7d7;
+  cursor: pointer;
 }
 </style>
