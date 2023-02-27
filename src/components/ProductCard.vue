@@ -105,24 +105,18 @@ export default {
   width: 100%;
   display: grid;
   background-image: linear-gradient(#d6e6ff 70%, white 30%);
-  /* background: #D6E6FF; */
-  /* font-family:sans-serif; */
-  /* text-transform: uppercase; */
 }
 .women {
   width: 100%;
   display: grid;
   background-image: linear-gradient(#fde2ff 70%, white 30%);
-  /* background: #fde2ff;
-    font-family: sans-serif;
-    text-transform: uppercase; */
 }
 
 .nodata {
   width: 100%;
   display: grid;
   background-image: linear-gradient(#dcdcdc 70%, white 30%);
-  /* background: #DCDCDC; */
+
   font-family: sans-serif;
   text-transform: uppercase;
 }
